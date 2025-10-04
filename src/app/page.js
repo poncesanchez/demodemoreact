@@ -10,7 +10,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+    <div className="p-8 max-h-screen">
       <ListadoAlumnos listado={listadoAlumnos} />
     </div>
   );
@@ -18,11 +18,11 @@ export default function Home() {
 
 const ListadoAlumnos = ({ listado }) => {
   return (
-    <ul>
+    <div>
       {listado.map((alumno) => (
         <Alumno {...alumno} />
       ))}
-    </ul>
+    </div>
   );
 };
 
@@ -30,7 +30,7 @@ const Alumno = ({ nombre, edad, online }) => {
   const [onlineAlumno, setOnlineAlumno] = useState(online);
 
   return (
-    <li className="flex gap-4 mb-4">
+    <li className="flex gap-4 mb-4 border border-white rounded p-4 shadow-sm">
       <button
         className="bg-white rounded p-2 text-black"
         onClick={() => setOnlineAlumno(true)}
