@@ -11,6 +11,9 @@ export default function Home() {
 
   return (
     <div className="p-8 max-h-screen">
+      <div>
+        <Alumno nombre={"Luis"} edad="34" online="true" />
+      </div>
       <ListadoAlumnos listado={listadoAlumnos} />
     </div>
   );
