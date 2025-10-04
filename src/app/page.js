@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { use, useState } from "react";
+import { ListadoAlumnos } from "./ListadoAlunos";
 
 export default function Home() {
   const listadoAlumnos = [
@@ -10,35 +11,14 @@ export default function Home() {
   ];
 
   return (
-    <div className="p-8 max-h-screen">
-      <ListadoAlumnos listado={listadoAlumnos} />
+    <div className="p-8 max-h-screen bg-teal-800">
+      <div className="flex gap-4">
+        <ListadoAlumnos listado={listadoAlumnos} />
+
+        <ListadoAlumnos listado={listadoAlumnos} />
+
+        <ListadoAlumnos listado={listadoAlumnos} />
+      </div>
     </div>
   );
 }
-
-const ListadoAlumnos = ({ listado }) => {
-  return (
-    <div>
-      {listado.map((alumno) => (
-        <Alumno {...alumno} />
-      ))}
-    </div>
-  );
-};
-
-const Alumno = ({ nombre, edad, online }) => {
-  const [onlineAlumno, setOnlineAlumno] = useState(online);
-
-  return (
-    <li className="flex gap-4 mb-4 border border-white rounded p-4 shadow-sm">
-      <button
-        className="bg-white rounded p-2 text-black"
-        onClick={() => setOnlineAlumno(true)}
-      >
-        Presioname
-      </button>
-      {onlineAlumno ? "🟢" : "🔴"}
-      {nombre} {edad}
-    </li>
-  );
-};
